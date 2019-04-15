@@ -1,0 +1,209 @@
+*, *::before, *::after {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+
+        --color-pink-one: #E64398;
+        --color-pink-two: #F172A1;
+        --color-white: #F0EBF4;
+        --color-purple: #B39BC8;
+        --color-blue: #A1C3D1;
+}
+
+/* Header -- global rules */
+.site-header {
+        padding: 3em 0;
+        text-align: center;
+        background-color: var(--color-pink-one);
+        color: var(--color-white);
+}
+
+/* Navbar -- global rules */
+.navbar-top {
+        background-color: var(--color-pink-one);
+}
+
+.navbar-top a {
+        display: block;
+        color: var(--color-white);
+        line-height: 3em;
+        text-decoration: none;
+        text-align: center;
+}
+
+.navbar-top a:hover {
+        background-color: var(--color-pink-two);
+}
+
+/* Footer -- global rules */
+.footer-bottom {
+        background-color: var(--color-pink-one);
+        color: white;
+        text-align: center;
+        line-height: 3em;
+}
+
+/* Page content -- global rules */
+.site-content {
+        padding: 1em 2em;
+        margin: 0 auto;
+}
+
+/* Grid setup -- site areas */
+
+body {
+        display: grid;
+        height: 100vh;
+}
+
+.navbar-top {
+        grid-area: navbar;
+}
+
+.site-header {
+        grid-area: header;
+}
+
+.site-content {
+        grid-area: content;
+        display: grid;
+        width: 100%;
+        max-width: 75em;
+}
+
+.footer-bottom {
+        grid-area: footer;
+}
+
+/* Grid setup -- content areas */
+.site-content aside:nth-of-type(1) {
+        grid-area: aside-1;
+}
+
+.site-content aside:nth-of-type(2) {
+        grid-area: aside-2;
+}
+
+.site-content article {
+        grid-area: article;
+}
+
+/* Media queries -- page layouts */
+
+@media only screen and (min-width: 0){
+
+        body {
+                grid-template-areas: 
+                        "header"
+                        "content"
+                        "navbar"
+                        "footer";
+                grid-template-rows:
+                        auto
+                        1fr
+                        auto
+                        auto;
+        }
+
+        .site-content {
+                grid-template-areas: 
+                        "aside-1"
+                        "article"
+                        "aside-2";
+        }
+
+}
+
+@media only screen and (min-width: 30em) { /* allir skjair <= 40em fa tessar reglur */
+
+        body {
+                grid-template-areas: 
+                        "header"
+                        "content"
+                        "navbar"
+                        "footer";
+                grid-template-rows:
+                        auto
+                        1fr
+                        auto
+                        auto;
+        }
+
+        .site-content {
+                grid-template-areas: 
+                        "aside-1"
+                        "article"
+                        "aside-2";
+        }
+
+}
+
+@media only screen and (min-width:37.5em) { /* allir skjair <= 40em fa tessar reglur */
+        body {
+                grid-template-areas: 
+                        "header"
+                        "navbar"
+                        "content"
+                        "footer";
+                grid-template-rows:
+                        auto
+                        auto
+                        1fr
+                        auto;
+        }
+}
+
+@media only screen and (min-width: 48em) { /* allir skjair 40em-60em fa tessar reglur */
+        .site-content {
+                grid-template-areas:
+                        "aside-1 article"
+                        "aside-2 article"
+        }
+}
+
+@media only screen and (min-width: 60em) { /* allir skjair >=60em fa tessar reglur */
+        body {
+                grid-template-areas: 
+                        "header"
+                        "navbar"
+                        "content"
+                        "footer";
+                grid-template-rows:
+                        auto
+                        auto
+                        1fr
+                        auto;
+        }
+
+        .site-header {
+                text-align: left;
+                padding-left: 3em;
+        }
+
+        .site-content {
+                padding: 3em 1em;
+                grid-template-areas: 
+                        "aside-1 article aside-2";
+                grid-template-rows: 1fr;
+                grid-template-columns: 1fr 2fr 1fr;
+                grid-gap: 2em;
+        }
+
+        .navbar-top {
+                padding-left: 1em;
+        }
+
+        .navbar-top li {
+                display: inline;
+        }
+        
+        .navbar-top a {
+                display: inline-block;
+                padding: 0 4em;
+        }
+
+}
+
+@media only screen and (min-width: 80em) {
+
+}
